@@ -44,6 +44,7 @@
 
 </androidx.appcompat.widget.LinearLayoutCompat>
 
+
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_BTN_left"
         android:layout_width="wrap_content"
@@ -55,6 +56,18 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_BTN_start"
+        android:layout_width="@dimen/start_BTN_width"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:textStyle="bold"
+        android:textSize="@dimen/start_BTN_text_size"
+        android:backgroundTint="@color/indigo_500"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/buttons_margin"/>
+
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_BTN_right"
         android:layout_width="wrap_content"
@@ -65,6 +78,8 @@
         android:backgroundTint="@color/indigo_300"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"/>
+
+
 
 
 </RelativeLayout>
