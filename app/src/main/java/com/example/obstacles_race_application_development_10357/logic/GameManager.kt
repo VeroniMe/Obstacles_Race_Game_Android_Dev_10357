@@ -38,7 +38,6 @@ class GameManager(
 
     fun moveObstacles( addNewLine:Boolean ) {
 
-
         for (i in obstacles.size - 1 downTo 1)  //from obsRows to 0
             obstacles[i] = obstacles[i-1]
 
