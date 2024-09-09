@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -31,8 +32,8 @@ class MainActivity : AppCompatActivity() {
 
    private var timerOn = false
    private var justStarted: Boolean = true
+   private var collisions: Int = 0
    private var lastNewObsAppearance: Long = 0
-
 
 
    private lateinit var gameJob : Job
@@ -42,7 +43,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         findViews()
-        gameManager = GameManager(main_IMG_hearts.size, main_IMG_ufos.size, main_IMG_asteroids.get(0).size, main_IMG_asteroids.size)
+        gameManager = GameManager(
+            main_IMG_hearts.size,
+            main_IMG_asteroids[0].size,
+            main_IMG_asteroids.size
+        )
         initViews()
         refreshUI()
     }
@@ -74,26 +79,52 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshUI() {
+        if(gameManager.isGameLost) {
+            Log.d(
+                "Game Status",
+                "Game Over!"
+            )  //d - debug, e -error, i - info, w - warning, t - trace
+            //TODO: continue to implement + change screen
+            collisions = 0
+            gameManager.resetGameLogic()
+            main_IMG_hearts[0].visibility = View.VISIBLE
+            main_IMG_hearts[1].visibility = View.VISIBLE
+            main_IMG_hearts[2].visibility = View.VISIBLE
+        }
+
+        //refresh ufo position view
         for (i in main_IMG_ufos.indices) {
             if(i == gameManager.ufoPosition)
                 main_IMG_ufos[i].visibility = View.VISIBLE
             else
                 main_IMG_ufos[i].visibility = View.INVISIBLE
         }
+        //refresh obstacles positions view
         for (i in gameManager.obstacles.indices) {
             for ( j in gameManager.obstacles[i].indices) {
                 if(gameManager.obstacles[i][j])
                     main_IMG_asteroids[i][j].visibility = View.VISIBLE
                 else
                     main_IMG_asteroids[i][j].visibility = View.INVISIBLE
+                if (i == main_IMG_asteroids.size-1)
+                    main_IMG_asteroids[i][j].visibility = View.INVISIBLE
 
             }
+        }
+        if(gameManager.collisionsCount != 0) {
+            main_IMG_hearts[main_IMG_hearts.size - gameManager.collisionsCount].visibility = View.INVISIBLE
+            if(gameManager.collisionsCount > collisions) {
+                toastAndVibrateOnCollision()
+                collisions++
+
+            }
+
         }
 
     }
 
     private fun obstaclesMove(){
-        println("obstaclesMove")
+        main_BTN_start.visibility = View.INVISIBLE
         if(!timerOn) {
             timerOn = true
             gameJob = lifecycleScope.launch {
@@ -117,8 +148,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun toastAndVibrateOnCollision(text : String) {
-        toastOnCollision(text)
+    private fun toastAndVibrateOnCollision() {
+        //TODO : Add toast and vibrate on collision
+
+        toastOnCollision("Oops! You crashed, be careful!")
         vibrateOnCollision()
     }
 
@@ -127,8 +160,9 @@ class MainActivity : AppCompatActivity() {
             .makeText(
                 this,
                 text,
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
+
     }
 
     private fun vibrateOnCollision() {
@@ -140,7 +174,7 @@ class MainActivity : AppCompatActivity() {
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val oneShotVibratioEffect = VibrationEffect.createOneShot(
-                500,
+                100,
                 VibrationEffect.DEFAULT_AMPLITUDE
             )
             vibrator.vibrate(oneShotVibratioEffect)

@@ -3,8 +3,7 @@ package com.example.obstacles_race_application_development_10357.logic
 import kotlin.random.Random
 
 class GameManager(
-    private val lifeCount: Int = 3,
-    private val linesCount: Int = 3,
+    private var lifeCount: Int = 3,
     private val obsCols: Int = 3,
     private val obsRows: Int = 5,
 ) {
@@ -15,7 +14,7 @@ class GameManager(
         private set
     var obstacles: Array<Array<Boolean>> = Array(obsRows) { Array(obsCols) { false } }
 
-    val isGameEnded: Boolean
+    val isGameLost: Boolean
         get() = collisionsCount == lifeCount
 
 
@@ -33,6 +32,11 @@ class GameManager(
 
     fun checkCollision() {
         //TODO: continue logic of collision check
+        //TODO: ad hearts decrease
+        if(obstacles[obsRows-1][ufoPosition]) { //if there is obstacle in ufo position
+            collisionsCount++
+
+        }
 
     }
 
@@ -49,6 +53,13 @@ class GameManager(
                 obstacles[0][i] = i == randomObs
             }
         }
+        checkCollision()
+
+    }
+
+    fun resetGameLogic() {
+        lifeCount = 3
+        collisionsCount = 0
 
     }
 
