@@ -123,6 +123,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
     private fun obstaclesMove(){
         main_BTN_start.visibility = View.INVISIBLE
         if(!timerOn) {
