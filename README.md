@@ -11,5 +11,4 @@ The first phase demonstrates the following features:
 * 3 lives (decrease when crashed)
 * Endless game (3 lives after death) - for now.
 
-![First Overview of the Screens](./describeIMGs/project_part1.jpg)
-![First Overview of the Screen](./describeIMGs/project_part11.jpg)
+![First Overview of the Screens](./describeIMGs/project_screens_part1.png)
