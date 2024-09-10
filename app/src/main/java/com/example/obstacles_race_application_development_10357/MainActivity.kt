@@ -79,6 +79,38 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun refreshUI() {
+
+
+        //refresh ufo position view
+        for (i in main_IMG_ufos.indices) {
+            if(i == gameManager.ufoPosition)
+                main_IMG_ufos[i].visibility = View.VISIBLE
+            else
+                main_IMG_ufos[i].visibility = View.INVISIBLE
+        }
+
+        if(gameManager.collisionsCount != 0) {
+
+            main_IMG_hearts[main_IMG_hearts.size - gameManager.collisionsCount].visibility = View.INVISIBLE
+            if(gameManager.collisionsCount > collisions) {
+
+                toastAndVibrateOnCollision()
+                collisions++
+
+            }
+
+        }
+        //refresh obstacles positions view
+        for (i in gameManager.obstacles.indices) {
+            for ( j in gameManager.obstacles[i].indices) {
+
+                if(gameManager.obstacles[i][j])
+                    main_IMG_asteroids[i][j].visibility = View.VISIBLE
+                else
+                    main_IMG_asteroids[i][j].visibility = View.INVISIBLE
+
+            }
+        }
         if(gameManager.isGameLost) {
             Log.d(
                 "Game Status",
@@ -90,35 +122,6 @@ class MainActivity : AppCompatActivity() {
             main_IMG_hearts[0].visibility = View.VISIBLE
             main_IMG_hearts[1].visibility = View.VISIBLE
             main_IMG_hearts[2].visibility = View.VISIBLE
-        }
-
-        //refresh ufo position view
-        for (i in main_IMG_ufos.indices) {
-            if(i == gameManager.ufoPosition)
-                main_IMG_ufos[i].visibility = View.VISIBLE
-            else
-                main_IMG_ufos[i].visibility = View.INVISIBLE
-        }
-        //refresh obstacles positions view
-        for (i in gameManager.obstacles.indices) {
-            for ( j in gameManager.obstacles[i].indices) {
-                if(gameManager.obstacles[i][j])
-                    main_IMG_asteroids[i][j].visibility = View.VISIBLE
-                else
-                    main_IMG_asteroids[i][j].visibility = View.INVISIBLE
-                if (i == main_IMG_asteroids.size-1)
-                    main_IMG_asteroids[i][j].visibility = View.INVISIBLE
-
-            }
-        }
-        if(gameManager.collisionsCount != 0) {
-            main_IMG_hearts[main_IMG_hearts.size - gameManager.collisionsCount].visibility = View.INVISIBLE
-            if(gameManager.collisionsCount > collisions) {
-                toastAndVibrateOnCollision()
-                collisions++
-
-            }
-
         }
 
     }

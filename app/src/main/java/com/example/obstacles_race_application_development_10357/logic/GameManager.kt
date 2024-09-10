@@ -22,19 +22,20 @@ class GameManager(
         ufoPosition--
         if(ufoPosition < 0)
             ufoPosition = 0
+        checkCollision()
     }
 
     fun moveRight() {
         ufoPosition++
         if(ufoPosition > 2)
             ufoPosition = 2
+        checkCollision()
     }
 
     fun checkCollision() {
-        //TODO: continue logic of collision check
-        //TODO: ad hearts decrease
         if(obstacles[obsRows-1][ufoPosition]) { //if there is obstacle in ufo position
             collisionsCount++
+            obstacles[obsRows-1] = Array(obsCols) { false }
 
         }
 
