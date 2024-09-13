@@ -11,8 +11,107 @@
         android:id="@+id/menu_IMG_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:scaleType="centerCrop"
         android:layout_centerInParent="true"/>
 
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:layout_alignParentStart="true"
+    android:layout_marginTop="300dp">
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mode"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="@color/black"/>
+        <RadioGroup
+            android:id="@+id/radio_GRP_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <RadioButton
+                android:id="@+id/radio_BTN_btnmode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sensor"
+                android:textSize="22sp"
+                android:paddingStart="5dp"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="match_parent"/>
+
+            <RadioButton
+                android:id="@+id/radio_BTN_sensormode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buttons"
+                android:textSize="22sp"
+                android:paddingStart="5dp"
+                android:textColor="@color/black"/>
+        </RadioGroup>
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Speed"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"/>
+
+        <RadioGroup
+            android:id="@+id/radio_GRP_menu_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/radio_BTN_highSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="High"
+                android:textSize="22sp"
+                android:paddingStart="5dp"
+                android:textColor="@color/black"/>
+            <LinearLayout
+                android:layout_width="43dp"
+                android:layout_height="match_parent"/>
+
+            <RadioButton
+                android:id="@+id/radio_BTN_lowSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Low"
+                android:textSize="22sp"
+                android:paddingStart="5dp"
+                android:textColor="@color/black"/>
+
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_start"
+            android:layout_width="@dimen/start_BTN_width"
+            android:layout_height="wrap_content"
+            android:text="@string/start"
+            android:textStyle="bold"
+            android:textSize="@dimen/start_BTN_text_size"
+            android:backgroundTint="@color/deep_purple_500"
+            android:layout_marginTop="10dp"
+            />
+    </LinearLayout>
+
 </RelativeLayout>
+

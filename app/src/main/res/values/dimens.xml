@@ -5,7 +5,7 @@
     <dimen name="default_margin">16dp</dimen>
     <dimen name="heart_margin">10dp</dimen>
     <dimen name="buttons_margin">19dp</dimen>
-    <dimen name="start_BTN_width">150dp</dimen>
+    <dimen name="start_BTN_width">200dp</dimen>
     <dimen name="start_BTN_text_size">20sp</dimen>
     <dimen name="asteroid_IMG_size">100dp</dimen>
     <dimen name="ufo_IMG_size">100dp</dimen>
