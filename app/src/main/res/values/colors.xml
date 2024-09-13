@@ -6,4 +6,11 @@
     <color name="indigo_300">#7986CB</color>
     <color name="indigo_500">#3F51B5</color>
     <color name="blue_grey_50">#ECEFF1</color>
+
+    <color name="yellow_200">#FFF59D</color>
+    <color name="teal_400">#26A69A</color>
+    <color name="purple_600">#8E24AA</color>
+
+
+
 </resources>

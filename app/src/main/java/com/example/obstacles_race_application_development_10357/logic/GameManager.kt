@@ -64,5 +64,9 @@ class GameManager(
 
     }
 
+    fun centerPosition() {
+        ufoPosition = 2
+    }
+
 
 }

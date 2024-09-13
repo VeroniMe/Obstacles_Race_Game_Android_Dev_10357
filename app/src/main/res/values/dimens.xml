@@ -9,4 +9,5 @@
     <dimen name="start_BTN_text_size">20sp</dimen>
     <dimen name="asteroid_IMG_size">100dp</dimen>
     <dimen name="ufo_IMG_size">100dp</dimen>
+    <dimen name="columns_margin_horizontal">10dp</dimen>
 </resources>

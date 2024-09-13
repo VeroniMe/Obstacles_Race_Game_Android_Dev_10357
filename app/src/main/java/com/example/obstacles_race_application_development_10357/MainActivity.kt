@@ -10,8 +10,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.obstacles_race_application_development_10357.interfaces.Callback_MoveCallback
 import com.example.obstacles_race_application_development_10357.logic.GameManager
 import com.example.obstacles_race_application_development_10357.utilities.Constants
+import com.example.obstacles_race_application_development_10357.utilities.MoveDetector
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.imageview.ShapeableImageView
@@ -29,6 +31,8 @@ class MainActivity : AppCompatActivity() {
    private lateinit var main_IMG_asteroids : Array<Array<ShapeableImageView>>
    private lateinit var main_IMG_ufos : Array<ShapeableImageView>
    private lateinit var gameManager: GameManager
+
+   private lateinit var moveDetector: MoveDetector
 
    private var timerOn = false
    private var justStarted: Boolean = true
@@ -49,7 +53,37 @@ class MainActivity : AppCompatActivity() {
             main_IMG_asteroids.size
         )
         initViews()
+        initMoveDetector()
         refreshUI()
+    }
+
+    private fun initMoveDetector() {
+        moveDetector = MoveDetector(
+            this,
+                    object : Callback_MoveCallback {
+                        override fun moveLeftCall() {
+                            moveLeft()
+                        }
+                        override fun moveRightCall() {
+                            moveRight()
+                        }
+
+                        override fun centralize() {
+                            centerPosition()
+                        }
+
+                    }
+        )
+    }
+
+    override fun onPause() {
+        super.onPause()
+        moveDetector.stop()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        moveDetector.start()
     }
 
     override fun onStop() {
@@ -75,6 +109,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun moveRight() {
         gameManager.moveRight()
+        refreshUI()
+    }
+
+    private fun centerPosition() {
+        gameManager.centerPosition()
         refreshUI()
     }
 
@@ -126,7 +165,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
+    //GAME FLOW
     private fun obstaclesMove(){
         main_BTN_start.visibility = View.INVISIBLE
         if(!timerOn) {
