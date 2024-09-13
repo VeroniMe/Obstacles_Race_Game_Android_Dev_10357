@@ -15,6 +15,18 @@
         android:theme="@style/Theme.Obstacles_Race_Application_Development_10357"
         tools:targetApi="31">
         <activity
+            android:name=".ScoresActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ToastAndVibrateOnCollisionActivity"
             android:exported="false" />
         <activity

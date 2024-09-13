@@ -10,4 +10,8 @@
     <dimen name="asteroid_IMG_size">100dp</dimen>
     <dimen name="ufo_IMG_size">100dp</dimen>
     <dimen name="columns_margin_horizontal">10dp</dimen>
+    <dimen name="score_text_size">32sp</dimen>
+    <dimen name="crystal_score_margin">10dp</dimen>
+    <dimen name="crystal_score_height">55dp</dimen>
+    <dimen name="crystal_score_width">55dp</dimen>
 </resources>

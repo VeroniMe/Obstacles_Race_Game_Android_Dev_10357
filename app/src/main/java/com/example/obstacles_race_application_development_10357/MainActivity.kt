@@ -14,16 +14,18 @@ import com.example.obstacles_race_application_development_10357.interfaces.Callb
 import com.example.obstacles_race_application_development_10357.logic.GameManager
 import com.example.obstacles_race_application_development_10357.utilities.Constants
 import com.example.obstacles_race_application_development_10357.utilities.MoveDetector
+import com.example.obstacles_race_application_development_10357.utilities.Shapes
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.imageview.ShapeableImageView
+import com.google.android.material.textview.MaterialTextView
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-
+   private lateinit var main_LBL_score : MaterialTextView
    private lateinit var main_IMG_hearts : Array <ShapeableImageView>
    private lateinit var main_BTN_left : ExtendedFloatingActionButton
    private lateinit var main_BTN_start : MaterialButton
@@ -41,6 +43,7 @@ class MainActivity : AppCompatActivity() {
 
 
    private lateinit var gameJob : Job
+   private var score : Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,6 +95,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        main_LBL_score.text = score.toString()
         main_BTN_start.setOnClickListener { view: View? -> obstaclesMove()}
         main_BTN_left.setOnClickListener { view: View? -> moveLeft()}
         main_BTN_right.setOnClickListener { view: View? -> moveRight()}
@@ -111,6 +115,12 @@ class MainActivity : AppCompatActivity() {
         gameManager.moveRight()
         refreshUI()
     }
+
+
+    private fun increase(){
+        main_LBL_score.text = gameManager.score.toString()
+    }
+
 
     private fun centerPosition() {
         gameManager.centerPosition()
@@ -132,18 +142,17 @@ class MainActivity : AppCompatActivity() {
 
             main_IMG_hearts[main_IMG_hearts.size - gameManager.collisionsCount].visibility = View.INVISIBLE
             if(gameManager.collisionsCount > collisions) {
-
                 toastAndVibrateOnCollision()
                 collisions++
-
             }
+            //TODO : think about increase score
 
         }
         //refresh obstacles positions view
         for (i in gameManager.obstacles.indices) {
             for ( j in gameManager.obstacles[i].indices) {
 
-                if(gameManager.obstacles[i][j])
+                if(gameManager.obstacles[i][j] == Shapes.OBSTACLE)
                     main_IMG_asteroids[i][j].visibility = View.VISIBLE
                 else
                     main_IMG_asteroids[i][j].visibility = View.INVISIBLE
@@ -228,6 +237,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun findViews() {
+        main_LBL_score = findViewById(R.id.main_LBL_score)
         main_BTN_left = findViewById(R.id.main_BTN_left)
         main_BTN_start = findViewById(R.id.main_BTN_start)
         main_BTN_right = findViewById(R.id.main_BTN_right)
@@ -239,34 +249,67 @@ class MainActivity : AppCompatActivity() {
         main_IMG_ufos = arrayOf(
             findViewById(R.id.main_IMG_ufo0),
             findViewById(R.id.main_IMG_ufo1),
-            findViewById(R.id.main_IMG_ufo2)
+            findViewById(R.id.main_IMG_ufo2),
+            findViewById(R.id.main_IMG_ufo3),
+            findViewById(R.id.main_IMG_ufo4)
         )
         main_IMG_asteroids = arrayOf(
             arrayOf(
                 findViewById(R.id.main_IMG_asteroid00),
                 findViewById(R.id.main_IMG_asteroid01),
-                findViewById(R.id.main_IMG_asteroid02)
+                findViewById(R.id.main_IMG_asteroid02),
+                findViewById(R.id.main_IMG_asteroid03),
+                findViewById(R.id.main_IMG_asteroid04)
             ),
             arrayOf(
                 findViewById(R.id.main_IMG_asteroid10),
                 findViewById(R.id.main_IMG_asteroid11),
-                findViewById(R.id.main_IMG_asteroid12)
+                findViewById(R.id.main_IMG_asteroid12),
+                findViewById(R.id.main_IMG_asteroid13),
+                findViewById(R.id.main_IMG_asteroid14)
             ),
             arrayOf(
                 findViewById(R.id.main_IMG_asteroid20),
                 findViewById(R.id.main_IMG_asteroid21),
-                findViewById(R.id.main_IMG_asteroid22)
+                findViewById(R.id.main_IMG_asteroid22),
+                findViewById(R.id.main_IMG_asteroid23),
+                findViewById(R.id.main_IMG_asteroid24)
             ),
             arrayOf(
                 findViewById(R.id.main_IMG_asteroid30),
                 findViewById(R.id.main_IMG_asteroid31),
-                findViewById(R.id.main_IMG_asteroid32)
+                findViewById(R.id.main_IMG_asteroid32),
+                findViewById(R.id.main_IMG_asteroid33),
+                findViewById(R.id.main_IMG_asteroid34)
             ),
             arrayOf(
                 findViewById(R.id.main_IMG_asteroid40),
                 findViewById(R.id.main_IMG_asteroid41),
-                findViewById(R.id.main_IMG_asteroid42)
-            )
+                findViewById(R.id.main_IMG_asteroid42),
+                findViewById(R.id.main_IMG_asteroid43),
+                findViewById(R.id.main_IMG_asteroid44)
+            ),
+            arrayOf(
+                findViewById(R.id.main_IMG_asteroid50),
+                findViewById(R.id.main_IMG_asteroid51),
+                findViewById(R.id.main_IMG_asteroid52),
+                findViewById(R.id.main_IMG_asteroid53),
+                findViewById(R.id.main_IMG_asteroid54)
+            ),
+            arrayOf(
+                findViewById(R.id.main_IMG_asteroid60),
+                findViewById(R.id.main_IMG_asteroid61),
+                findViewById(R.id.main_IMG_asteroid62),
+                findViewById(R.id.main_IMG_asteroid63),
+                findViewById(R.id.main_IMG_asteroid64)
+            ),
+            arrayOf(
+                findViewById(R.id.main_IMG_asteroid70),
+                findViewById(R.id.main_IMG_asteroid71),
+                findViewById(R.id.main_IMG_asteroid72),
+                findViewById(R.id.main_IMG_asteroid73),
+                findViewById(R.id.main_IMG_asteroid74)
+            ),
 
 
 

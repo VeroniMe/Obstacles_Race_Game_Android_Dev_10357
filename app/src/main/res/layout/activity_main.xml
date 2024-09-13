@@ -458,13 +458,20 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/asteroid"
                 android:layout_gravity="center"
-                android:visibility="invisible"/>
+                android:visibility="visible"/>
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_ufo4"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ufo"
                 android:layout_gravity="center"
                 android:visibility="visible"/>
@@ -511,7 +518,27 @@
 
 
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_LBL_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="000"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin"
+        android:textSize="@dimen/score_text_size"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
 
-
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/main_IMG_crystal_in_score"
+            android:layout_width="@dimen/crystal_score_width"
+            android:layout_height="@dimen/crystal_score_height"
+            app:srcCompat="@drawable/crystal_type1"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            android:layout_toEndOf="@+id/main_LBL_score"
+            android:layout_marginTop="@dimen/crystal_score_margin"/>
 
 </RelativeLayout>
