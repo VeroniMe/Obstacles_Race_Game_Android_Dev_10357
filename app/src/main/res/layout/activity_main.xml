@@ -43,10 +43,9 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/heart"
         android:visibility="visible"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
-
-<androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="100dp"
@@ -62,6 +61,10 @@
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginHorizontal="@dimen/columns_margin_horizontal">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/main_IMG_asteroid00"
             android:layout_width="wrap_content"
@@ -70,52 +73,136 @@
             android:layout_gravity="center"
             android:visibility="visible"/>
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/main_IMG_crystal00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/crystal_type1"
+            android:layout_gravity="center"
+            android:visibility="visible"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/main_IMG_asteroid10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/asteroid"
             android:layout_gravity="center"
             android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid30"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid40"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid50"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid60"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal40"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_asteroid70"
@@ -124,8 +211,13 @@
                 app:srcCompat="@drawable/asteroid"
                 android:layout_gravity="center"
                 android:visibility="invisible"/>
-
-
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal70"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_ufo0"
                 android:layout_width="wrap_content"
@@ -136,6 +228,9 @@
         </FrameLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
     <!-- Second Column -->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -145,60 +240,152 @@
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginHorizontal="@dimen/columns_margin_horizontal">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid01"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid31"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid41"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid51"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+            android:layout_weight="1">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid61"
-            android:layout_width="wrap_content"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_asteroid71"
@@ -206,9 +393,14 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/asteroid"
                 android:layout_gravity="center"
-                android:visibility="invisible"/>
-
-
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal71"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_ufo1"
                 android:layout_width="wrap_content"
@@ -229,60 +421,153 @@
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginHorizontal="@dimen/columns_margin_horizontal">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid02"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid42"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid52"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+            android:layout_weight="1">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid62"
-            android:layout_width="wrap_content"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+        </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid62"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal62"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_asteroid72"
@@ -290,9 +575,14 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/asteroid"
                 android:layout_gravity="center"
-                android:visibility="invisible"/>
-
-
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal72"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_ufo2"
                 android:layout_width="wrap_content"
@@ -313,60 +603,159 @@
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginHorizontal="@dimen/columns_margin_horizontal">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid03"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid33"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid43"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid53"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+            android:layout_weight="1">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid63"
-            android:layout_width="wrap_content"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_asteroid73"
@@ -374,9 +763,14 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/asteroid"
                 android:layout_gravity="center"
-                android:visibility="invisible"/>
-
-
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal73"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_ufo3"
                 android:layout_width="wrap_content"
@@ -397,60 +791,159 @@
         android:layout_marginTop="@dimen/default_margin"
         android:layout_marginHorizontal="@dimen/columns_margin_horizontal">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid04"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid44"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid54"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+            android:layout_weight="1">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_asteroid64"
-            android:layout_width="wrap_content"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/asteroid"
-            android:layout_gravity="center"
-            android:visibility="visible"/>
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_asteroid64"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/asteroid"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/main_IMG_crystal64"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/crystal_type1"
+                android:layout_gravity="center"
+                android:visibility="visible"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_asteroid74"
@@ -459,19 +952,17 @@
                 app:srcCompat="@drawable/asteroid"
                 android:layout_gravity="center"
                 android:visibility="visible"/>
-
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_crystal"
+                android:id="@+id/main_IMG_crystal74"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/crystal_type1"
                 android:layout_gravity="center"
                 android:visibility="visible"/>
-
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_ufo4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 app:srcCompat="@drawable/ufo"
                 android:layout_gravity="center"
                 android:visibility="visible"/>
@@ -493,19 +984,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/main_BTN_start"
-        android:layout_width="@dimen/start_BTN_width"
-        android:layout_height="wrap_content"
-        android:text="@string/start"
-        android:textStyle="bold"
-        android:textSize="@dimen/start_BTN_text_size"
-        android:backgroundTint="@color/indigo_500"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/buttons_margin"/>
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+      <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/main_BTN_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -531,14 +1010,14 @@
         android:textColor="@color/black"
         android:textStyle="bold"/>
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/main_IMG_crystal_in_score"
-            android:layout_width="@dimen/crystal_score_width"
-            android:layout_height="@dimen/crystal_score_height"
-            app:srcCompat="@drawable/crystal_type1"
-            android:layout_gravity="center"
-            android:visibility="visible"
-            android:layout_toEndOf="@+id/main_LBL_score"
-            android:layout_marginTop="@dimen/crystal_score_margin"/>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/main_IMG_crystal_in_score"
+        android:layout_width="@dimen/crystal_score_width"
+        android:layout_height="@dimen/crystal_score_height"
+        app:srcCompat="@drawable/crystal_type1"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:layout_toEndOf="@+id/main_LBL_score"
+        android:layout_marginTop="@dimen/crystal_score_margin"/>
 
 </RelativeLayout>

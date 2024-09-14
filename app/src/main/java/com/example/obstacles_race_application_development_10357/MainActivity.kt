@@ -1,5 +1,6 @@
 package com.example.obstacles_race_application_development_10357
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -13,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.obstacles_race_application_development_10357.interfaces.Callback_MoveCallback
 import com.example.obstacles_race_application_development_10357.logic.GameManager
 import com.example.obstacles_race_application_development_10357.utilities.Constants
+import com.example.obstacles_race_application_development_10357.utilities.GameMode
 import com.example.obstacles_race_application_development_10357.utilities.MoveDetector
 import com.example.obstacles_race_application_development_10357.utilities.Shapes
 import com.google.android.material.button.MaterialButton
@@ -28,9 +30,10 @@ class MainActivity : AppCompatActivity() {
    private lateinit var main_LBL_score : MaterialTextView
    private lateinit var main_IMG_hearts : Array <ShapeableImageView>
    private lateinit var main_BTN_left : ExtendedFloatingActionButton
-   private lateinit var main_BTN_start : MaterialButton
+   //private lateinit var main_BTN_start : MaterialButton
    private lateinit var main_BTN_right : ExtendedFloatingActionButton
    private lateinit var main_IMG_asteroids : Array<Array<ShapeableImageView>>
+   private lateinit var main_IMG_coins : Array<Array<ShapeableImageView>>
    private lateinit var main_IMG_ufos : Array<ShapeableImageView>
    private lateinit var gameManager: GameManager
 
@@ -44,6 +47,10 @@ class MainActivity : AppCompatActivity() {
 
    private lateinit var gameJob : Job
    private var score : Int = 0
+   private var gameMode : GameMode = GameMode.BUTTONS
+   private var gameSpeed : Long = Constants.LOW_SPEED
+   private var obsAppearenceSpeed : Long = Constants.LOW_OBSTACLES_APPEARANCE
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,7 +77,6 @@ class MainActivity : AppCompatActivity() {
                         override fun moveRightCall() {
                             moveRight()
                         }
-
                         override fun centralize() {
                             centerPosition()
                         }
@@ -95,10 +101,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        //intent = previous activity
+        val bundle : Bundle? = intent.extras
+        val modeInt = bundle?.getInt(Constants.MODE_KEY, GameMode.BUTTONS.ordinal)
+        gameMode = GameMode.entries[modeInt as Int]
+        val highSpeed = bundle.getBoolean(Constants.HIGH_SPEED_KEY, false)
+        if(gameMode == GameMode.SENSOR) {
+            initMoveDetector()
+            main_BTN_left.visibility = View.INVISIBLE
+            main_BTN_right.visibility = View.INVISIBLE
+
+        } else {
+            //buttons
+            if(highSpeed) {
+                gameSpeed = Constants.HIGH_SPEED
+                obsAppearenceSpeed = Constants.HIGH_OBSTACLES_APPEARANCE
+            } else {
+                gameSpeed = Constants.LOW_SPEED
+                obsAppearenceSpeed = Constants.LOW_OBSTACLES_APPEARANCE
+            }
+        }
+
         main_LBL_score.text = score.toString()
-        main_BTN_start.setOnClickListener { view: View? -> obstaclesMove()}
         main_BTN_left.setOnClickListener { view: View? -> moveLeft()}
         main_BTN_right.setOnClickListener { view: View? -> moveRight()}
+        obstaclesMove()
+
     }
 
     private fun stopTimer() {
@@ -129,7 +157,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun refreshUI() {
 
-
+        main_LBL_score.text = gameManager.score.toString()
         //refresh ufo position view
         for (i in main_IMG_ufos.indices) {
             if(i == gameManager.ufoPosition)
@@ -147,15 +175,24 @@ class MainActivity : AppCompatActivity() {
             }
             //TODO : think about increase score
 
+
         }
         //refresh obstacles positions view
         for (i in gameManager.obstacles.indices) {
             for ( j in gameManager.obstacles[i].indices) {
 
-                if(gameManager.obstacles[i][j] == Shapes.OBSTACLE)
+                if(gameManager.obstacles[i][j] == Shapes.OBSTACLE) {
                     main_IMG_asteroids[i][j].visibility = View.VISIBLE
-                else
+                    main_IMG_coins[i][j].visibility = View.INVISIBLE
+                }
+                else if(gameManager.obstacles[i][j] == Shapes.COIN) {
                     main_IMG_asteroids[i][j].visibility = View.INVISIBLE
+                    main_IMG_coins[i][j].visibility = View.VISIBLE
+                }
+                else {
+                    main_IMG_asteroids[i][j].visibility = View.INVISIBLE
+                    main_IMG_coins[i][j].visibility = View.INVISIBLE
+                }
 
             }
         }
@@ -176,7 +213,12 @@ class MainActivity : AppCompatActivity() {
 
     //GAME FLOW
     private fun obstaclesMove(){
-        main_BTN_start.visibility = View.INVISIBLE
+
+
+        Log.d(
+            "POSITION",
+            "OBSTACLES MOVE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        )
         if(!timerOn) {
             timerOn = true
             gameJob = lifecycleScope.launch {
@@ -187,13 +229,13 @@ class MainActivity : AppCompatActivity() {
                         justStarted = false
                     }
                     val currentTime = System.currentTimeMillis()
-                    if(currentTime - lastNewObsAppearance > Constants.OBSTACLES_APPEARANCE) {
+                    if(currentTime - lastNewObsAppearance > obsAppearenceSpeed) {
                         newObstacles = true
                         lastNewObsAppearance = currentTime
                     }
                     gameManager.moveObstacles(newObstacles) //calculate new positions
                     refreshUI()
-                    delay(Constants.SPEED)
+                    delay(gameSpeed)
                 }
             }
         }
@@ -239,7 +281,7 @@ class MainActivity : AppCompatActivity() {
     private fun findViews() {
         main_LBL_score = findViewById(R.id.main_LBL_score)
         main_BTN_left = findViewById(R.id.main_BTN_left)
-        main_BTN_start = findViewById(R.id.main_BTN_start)
+        //main_BTN_start = findViewById(R.id.main_BTN_start)
         main_BTN_right = findViewById(R.id.main_BTN_right)
         main_IMG_hearts = arrayOf(
             findViewById(R.id.main_IMG_heart1),
@@ -314,6 +356,68 @@ class MainActivity : AppCompatActivity() {
 
 
         )
+
+        main_IMG_coins = arrayOf(
+            arrayOf(
+                findViewById(R.id.main_IMG_crystal00),
+                findViewById(R.id.main_IMG_crystal01),
+                findViewById(R.id.main_IMG_crystal02),
+                findViewById(R.id.main_IMG_crystal03),
+                findViewById(R.id.main_IMG_crystal04)
+            ),
+            arrayOf(
+                findViewById(R.id.main_IMG_crystal10),
+                findViewById(R.id.main_IMG_crystal11),
+                findViewById(R.id.main_IMG_crystal12),
+                findViewById(R.id.main_IMG_crystal13),
+                findViewById(R.id.main_IMG_crystal14)
+            ),
+            arrayOf(
+                findViewById(R.id.main_IMG_crystal20),
+                findViewById(R.id.main_IMG_crystal21),
+                findViewById(R.id.main_IMG_crystal22),
+                findViewById(R.id.main_IMG_crystal23),
+                findViewById(R.id.main_IMG_crystal24)
+            ),
+            arrayOf(
+                findViewById(R.id.main_IMG_crystal30),
+                findViewById(R.id.main_IMG_crystal31),
+                findViewById(R.id.main_IMG_crystal32),
+                findViewById(R.id.main_IMG_crystal33),
+                findViewById(R.id.main_IMG_crystal34)
+            ),
+            arrayOf(
+                findViewById(R.id.main_IMG_crystal40),
+                findViewById(R.id.main_IMG_crystal41),
+                findViewById(R.id.main_IMG_crystal42),
+                findViewById(R.id.main_IMG_crystal43),
+                findViewById(R.id.main_IMG_crystal44)
+            ),
+            arrayOf(
+                findViewById(R.id.main_IMG_crystal50),
+                findViewById(R.id.main_IMG_crystal51),
+                findViewById(R.id.main_IMG_crystal52),
+                findViewById(R.id.main_IMG_crystal53),
+                findViewById(R.id.main_IMG_crystal54)
+            ),
+            arrayOf(
+                findViewById(R.id.main_IMG_crystal60),
+                findViewById(R.id.main_IMG_crystal61),
+                findViewById(R.id.main_IMG_crystal62),
+                findViewById(R.id.main_IMG_crystal63),
+                findViewById(R.id.main_IMG_crystal64)
+            ),
+            arrayOf(
+                findViewById(R.id.main_IMG_crystal70),
+                findViewById(R.id.main_IMG_crystal71),
+                findViewById(R.id.main_IMG_crystal72),
+                findViewById(R.id.main_IMG_crystal73),
+                findViewById(R.id.main_IMG_crystal74)
+            ),
+
+
+
+            )
     }
 
 

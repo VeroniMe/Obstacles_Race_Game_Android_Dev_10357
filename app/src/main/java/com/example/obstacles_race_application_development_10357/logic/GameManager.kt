@@ -39,8 +39,10 @@ class GameManager(
         if(obstacles[obsRows-1][ufoPosition] == Shapes.OBSTACLE) { //if there is obstacle in ufo position
             collisionsCount++
             obstacles[obsRows-1] = Array(obsCols) { Shapes.EMPTY }
+
         } else if (obstacles[obsRows-1][ufoPosition] == Shapes.COIN) { //if there is coin shape
             score += COIN_POINTS
+            obstacles[obsRows-1] = Array(obsCols) { Shapes.EMPTY }
         }
 
     }

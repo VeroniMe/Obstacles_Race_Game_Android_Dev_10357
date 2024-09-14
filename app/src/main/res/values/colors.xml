@@ -4,12 +4,16 @@
     <color name="white">#FFFFFFFF</color>
     <color name="indigo_100">#C5CAE9</color>
     <color name="indigo_300">#7986CB</color>
+    <color name="indigo_400">#5C6BC0</color>
     <color name="indigo_500">#3F51B5</color>
     <color name="blue_grey_50">#ECEFF1</color>
     <color name="deep_purple_500">#673AB7</color>
     <color name="yellow_200">#FFF59D</color>
     <color name="teal_400">#26A69A</color>
     <color name="purple_600">#8E24AA</color>
+    <color name="purple_100">#E1BEE7</color>
+    <color name="deep_purple_400">#7E57C2</color>
+    <color name="purple_400">#AB47BC</color>
 
 
 
