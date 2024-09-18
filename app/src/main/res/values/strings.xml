@@ -5,4 +5,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="list_hint">Please enter name</string>
     <string name="send">Send</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="scores">Scores</string>
+    <string name="save">Save</string>
+    <string name="save_your_score">Save your score</string>
 </resources>

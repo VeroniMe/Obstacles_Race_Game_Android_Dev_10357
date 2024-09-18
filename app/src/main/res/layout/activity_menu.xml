@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+    tools:context=".activities.MenuActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/menu_IMG_background"
@@ -16,12 +16,13 @@
 
 
     <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
     android:padding="10dp"
     android:orientation="vertical"
     android:layout_alignParentStart="true"
     android:layout_marginTop="300dp"
+    android:layout_marginBottom="100dp"
     android:background="@drawable/rounded_corners">
 
         <TextView
@@ -34,7 +35,7 @@
             android:gravity="center"/>
         <RadioGroup
             android:id="@+id/radio_GRP_mode"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp">
@@ -46,10 +47,9 @@
                 android:textSize="22sp"
                 android:paddingStart="5dp"
                 android:buttonTint="@color/purple_600"
-                android:textColor="@color/black" />
-
+                android:textColor="@color/black"/>
             <LinearLayout
-                android:layout_width="20dp"
+                android:layout_width="43dp"
                 android:layout_height="match_parent"/>
 
             <RadioButton
@@ -113,6 +113,18 @@
             android:layout_width="@dimen/start_BTN_width"
             android:layout_height="wrap_content"
             android:text="@string/start"
+            android:textStyle="bold"
+            android:textSize="@dimen/start_BTN_text_size"
+            android:backgroundTint="@color/deep_purple_500"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_scores"
+            android:layout_width="@dimen/start_BTN_width"
+            android:layout_height="wrap_content"
+            android:text="@string/scores"
             android:textStyle="bold"
             android:textSize="@dimen/start_BTN_text_size"
             android:backgroundTint="@color/deep_purple_500"

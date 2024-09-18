@@ -1,4 +1,4 @@
-package com.example.obstacles_race_application_development_10357
+package com.example.obstacles_race_application_development_10357.activities
 
 import android.content.Intent
 import android.os.Build
@@ -11,13 +11,14 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.obstacles_race_application_development_10357.R
 import com.example.obstacles_race_application_development_10357.interfaces.Callback_MoveCallback
 import com.example.obstacles_race_application_development_10357.logic.GameManager
 import com.example.obstacles_race_application_development_10357.utilities.Constants
 import com.example.obstacles_race_application_development_10357.utilities.GameMode
 import com.example.obstacles_race_application_development_10357.utilities.MoveDetector
 import com.example.obstacles_race_application_development_10357.utilities.Shapes
-import com.google.android.material.button.MaterialButton
+import com.example.obstacles_race_application_development_10357.utilities.SingleSoundPlayer
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
    private lateinit var main_IMG_coins : Array<Array<ShapeableImageView>>
    private lateinit var main_IMG_ufos : Array<ShapeableImageView>
    private lateinit var gameManager: GameManager
-
+   private lateinit var singleSoundPlayer : SingleSoundPlayer
    private lateinit var moveDetector: MoveDetector
 
    private var timerOn = false
@@ -57,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         findViews()
+        singleSoundPlayer = SingleSoundPlayer(this)
         gameManager = GameManager(
             main_IMG_hearts.size,
             main_IMG_asteroids[0].size,
@@ -87,12 +89,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        moveDetector.stop()
+        //moveDetector.stop()
     }
 
     override fun onResume() {
         super.onResume()
-        moveDetector.start()
+
     }
 
     override fun onStop() {
@@ -101,7 +103,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-        //intent = previous activity
+        //intent is a previous activity
         val bundle : Bundle? = intent.extras
         val modeInt = bundle?.getInt(Constants.MODE_KEY, GameMode.BUTTONS.ordinal)
         gameMode = GameMode.entries[modeInt as Int]
@@ -109,7 +111,9 @@ class MainActivity : AppCompatActivity() {
         if(gameMode == GameMode.SENSOR) {
             initMoveDetector()
             main_BTN_left.visibility = View.INVISIBLE
+
             main_BTN_right.visibility = View.INVISIBLE
+            moveDetector.start()
 
         } else {
             //buttons
@@ -145,11 +149,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun increase(){
-        main_LBL_score.text = gameManager.score.toString()
-    }
-
-
     private fun centerPosition() {
         gameManager.centerPosition()
         refreshUI()
@@ -171,10 +170,9 @@ class MainActivity : AppCompatActivity() {
             main_IMG_hearts[main_IMG_hearts.size - gameManager.collisionsCount].visibility = View.INVISIBLE
             if(gameManager.collisionsCount > collisions) {
                 toastAndVibrateOnCollision()
+                singleSoundPlayer.playSound(R.raw.collision_sound)
                 collisions++
             }
-            //TODO : think about increase score
-
 
         }
         //refresh obstacles positions view
@@ -202,11 +200,12 @@ class MainActivity : AppCompatActivity() {
                 "Game Over!"
             )  //d - debug, e -error, i - info, w - warning, t - trace
             //TODO: continue to implement + change screen
-            collisions = 0
-            gameManager.resetGameLogic()
-            main_IMG_hearts[0].visibility = View.VISIBLE
-            main_IMG_hearts[1].visibility = View.VISIBLE
-            main_IMG_hearts[2].visibility = View.VISIBLE
+            changeActivity()
+            //collisions = 0
+            //gameManager.resetGameLogic()
+            //main_IMG_hearts[0].visibility = View.VISIBLE
+            //main_IMG_hearts[1].visibility = View.VISIBLE
+            //main_IMG_hearts[2].visibility = View.VISIBLE
         }
 
     }
@@ -243,8 +242,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun toastAndVibrateOnCollision() {
-        //TODO : Add toast and vibrate on collision
-
         toastOnCollision("Oops! You crashed, be careful!")
         vibrateOnCollision()
     }
@@ -276,6 +273,15 @@ class MainActivity : AppCompatActivity() {
         } else {
             vibrator.vibrate(500)
         }
+    }
+
+    private fun changeActivity() {
+        val intent = Intent(this, GameOverActivity::class.java)
+        var bundle = Bundle()
+        bundle.putInt(Constants.SCORE_KEY, score)
+        intent.putExtras(bundle)
+        startActivity(intent)
+        finish()
     }
 
     private fun findViews() {

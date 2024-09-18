@@ -1,10 +1,8 @@
-package com.example.obstacles_race_application_development_10357
+package com.example.obstacles_race_application_development_10357.activities
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.obstacles_race_application_development_10357.R
 
 class ToastAndVibrateOnCollisionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

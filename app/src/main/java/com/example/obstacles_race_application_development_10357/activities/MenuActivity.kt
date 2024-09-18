@@ -1,16 +1,14 @@
-package com.example.obstacles_race_application_development_10357
+package com.example.obstacles_race_application_development_10357.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.example.obstacles_race_application_development_10357.R
 import com.example.obstacles_race_application_development_10357.utilities.Constants
 import com.example.obstacles_race_application_development_10357.utilities.GameMode
 import com.google.android.material.button.MaterialButton
@@ -29,6 +27,9 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var radio_GRP_menu_speed : RadioGroup
 
     private lateinit var main_BTN_start : MaterialButton
+    private lateinit var main_BTN_scores : MaterialButton
+
+
 
     private var mode: GameMode = GameMode.BUTTONS
     private var highSpeed: Boolean = false
@@ -52,8 +53,19 @@ class MenuActivity : AppCompatActivity() {
            .into(menu_IMG_background)
 
         main_BTN_start.setOnClickListener { view: View? -> startGame()}
+        main_BTN_scores.setOnClickListener {view: View? -> goToHighScores()}
 
 
+    }
+
+    private fun goToHighScores() {
+        val intent = Intent(this, ScoresActivity::class.java)
+        //var bundle = Bundle()
+        //bundle.putInt(Constants.MODE_KEY, mode.ordinal)
+        //bundle.putBoolean(Constants.HIGH_SPEED_KEY, highSpeed)
+        //intent.putExtras(bundle)
+        startActivity(intent)
+        finish()
     }
 
     private fun startGame() {
@@ -94,6 +106,7 @@ class MenuActivity : AppCompatActivity() {
         radio_GRP_mode = findViewById(R.id.radio_GRP_mode)
         radio_GRP_menu_speed = findViewById(R.id.radio_GRP_menu_speed)
         main_BTN_start = findViewById(R.id.main_BTN_start)
+        main_BTN_scores = findViewById(R.id.main_BTN_scores)
         radio_BTN_btnmode = findViewById(R.id.radio_BTN_btnmode)
         radio_BTN_highSpeed = findViewById(R.id.radio_BTN_highSpeed)
     }
