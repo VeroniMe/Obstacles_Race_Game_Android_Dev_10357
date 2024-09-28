@@ -79,7 +79,9 @@ class GameOverActivity : AppCompatActivity() {
         private fun createScore(location: Location) {
             val playerName = highScores_ET_name.text?.toString()?.ifEmpty {
                 "Player$playerCount"
+
             }
+
 
             // Build score
             val newScore = Score.Builder()
@@ -88,6 +90,8 @@ class GameOverActivity : AppCompatActivity() {
                 .name(playerName ?: "Player$playerCount")
                 .scorePoints(score)
                 .build()
+
+            playerCount++
 
             val highScoreL: HighScoresList = DataManager.getHighScoresList()
 

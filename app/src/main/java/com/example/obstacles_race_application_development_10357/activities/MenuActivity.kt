@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import com.bumptech.glide.Glide
@@ -23,8 +24,10 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var radio_BTN_highSpeed : RadioButton
 
+    private lateinit var radio_BTN_sensormode : RadioButton
     private lateinit var radio_GRP_mode : RadioGroup
 
+    private lateinit var menu_LBL_speed : TextView
     private lateinit var radio_GRP_menu_speed : RadioGroup
 
     private lateinit var main_BTN_start : MaterialButton
@@ -57,6 +60,20 @@ class MenuActivity : AppCompatActivity() {
         main_BTN_start.setOnClickListener { view: View? -> startGame()}
         main_BTN_scores.setOnClickListener {view: View? -> goToHighScores()}
 
+
+        radio_BTN_sensormode.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                menu_LBL_speed.visibility = View.INVISIBLE
+                radio_GRP_menu_speed.visibility = View.INVISIBLE
+            }
+        }
+
+        radio_BTN_btnmode.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                menu_LBL_speed.visibility = View.VISIBLE
+                radio_GRP_menu_speed.visibility = View.VISIBLE
+            }
+        }
 
     }
 
@@ -97,6 +114,9 @@ class MenuActivity : AppCompatActivity() {
         main_BTN_scores = findViewById(R.id.main_BTN_scores)
         radio_BTN_btnmode = findViewById(R.id.radio_BTN_btnmode)
         radio_BTN_highSpeed = findViewById(R.id.radio_BTN_highSpeed)
+        radio_BTN_sensormode = findViewById(R.id.radio_BTN_sensormode)
+        menu_LBL_speed = findViewById(R.id.menu_LBL_speed)
+
     }
     companion object {
 

@@ -65,6 +65,7 @@
         </RadioGroup>
 
         <TextView
+            android:id="@+id/menu_LBL_speed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Speed"
@@ -80,6 +81,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
+
             >
 
             <RadioButton

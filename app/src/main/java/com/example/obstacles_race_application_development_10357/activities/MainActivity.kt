@@ -216,7 +216,7 @@ class MainActivity : AppCompatActivity() {
                 "Game Status",
                 "Game Over!"
             )  //d - debug, e -error, i - info, w - warning, t - trace
-
+            moveDetector.stop()
             changeActivity()
         }
 
