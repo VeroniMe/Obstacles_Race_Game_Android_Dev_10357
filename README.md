@@ -33,6 +33,6 @@ The second phase demonstrates the following features:
 ### Menu Screen
 ![Menu](./describeIMGs/menu.png)
 ### Game Flow
-![Main Flow](./describeIMGs/main flow.png)
+![Main Flow](./describeIMGs/main_flow.png)
 ### Scores
 ![Scores](./describeIMGs/scores.png)
