@@ -21,8 +21,9 @@ data class HighScoresList private constructor(
             this.highScoresList = mutableList
 
         }
+
         fun build() = HighScoresList(highScoresList)
-        //TODO: CHECK IF NEED TO ADD NEWSCORE - 10 HIGHEST SAVED
+
     }
 
 }

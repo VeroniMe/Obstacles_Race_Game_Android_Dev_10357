@@ -1,6 +1,7 @@
 package com.example.obstacles_race_application_development_10357.activities
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.obstacles_race_application_development_10357.R
@@ -22,8 +23,6 @@ class ScoresActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scores)
-        //mapFragment = supportFragmentManager.findFragmentById(R.id.map) as MapFragment
-        //mapFragment.getMapAsync(this)
         findViews()
         initViews()
 
@@ -36,7 +35,7 @@ class ScoresActivity : AppCompatActivity(){
     }
 
     private fun initViews() {
-
+        Log.d("### START SCORE ACT", "---------------------------------------------")
         highScoreFragment = HighScoreFragment()
         highScoreFragment.callbackHighScoreItemClicked = object : Callback_HighScoreItemClicked {
             override fun highScoreItemClicked(lat: Double, lng: Double) {

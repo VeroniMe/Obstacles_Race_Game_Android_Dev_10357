@@ -6,23 +6,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.GameOverActivity"
-    android:background="@color/indigo_300">
+    >
+
+<androidx.appcompat.widget.AppCompatImageView
+    android:id="@+id/game_over_IMG_bgr"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="centerCrop"
+    android:layout_centerInParent="true"/>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/game_over_LBL_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:text="GAME OVER"
+        android:layout_marginTop="@dimen/default_margin"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/save_score_LBL_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:textStyle="bold"
         android:text="@string/save_your_score"
         android:layout_centerInParent="true"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginTop="200dp"
+        android:layout_below="@+id/game_over_LBL_text"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/highScores_ET_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/game_over_LBL_text"
+        android:layout_below="@+id/save_score_LBL_text"
         android:layout_centerInParent="true"
         android:layout_marginHorizontal="@dimen/default_margin"
         android:layout_marginVertical="@dimen/default_margin"

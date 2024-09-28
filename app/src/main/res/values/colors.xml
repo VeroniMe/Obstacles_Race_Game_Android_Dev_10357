@@ -12,8 +12,11 @@
     <color name="teal_400">#26A69A</color>
     <color name="purple_600">#8E24AA</color>
     <color name="purple_100">#E1BEE7</color>
+    <color name="purple_100_trans">#80E1BEE7</color>
     <color name="deep_purple_400">#7E57C2</color>
     <color name="purple_400">#AB47BC</color>
+    <color name="colorDefault">#FFC4FF</color>
+    <color name="colorPressed">#F3E5F5</color>
 
 
 

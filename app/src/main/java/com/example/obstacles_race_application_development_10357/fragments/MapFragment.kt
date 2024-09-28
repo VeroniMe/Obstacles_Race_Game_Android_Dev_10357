@@ -58,18 +58,24 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     public fun zoom(lat : Double, lng : Double) {
 
+        val location = LatLng(lat, lng)
+        mMap?.addMarker(
+            MarkerOptions()
+                .position(location)
+                .title("You are here")
+        )
+        mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
+
+        // Add marker to the map
+        //mMap?.clear()
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         this.mMap = googleMap
-
-
         // Add a marker in Sydney and move the camera
         val sydney = LatLng(-34.0, 151.0)
-        mMap!!.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+        //mMap!!.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-
-
         this.mMap?.clear()
     }
 

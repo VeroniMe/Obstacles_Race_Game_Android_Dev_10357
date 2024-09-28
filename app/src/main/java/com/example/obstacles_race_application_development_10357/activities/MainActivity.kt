@@ -10,7 +10,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.obstacles_race_application_development_10357.R
 import com.example.obstacles_race_application_development_10357.interfaces.Callback_MoveCallback
 import com.example.obstacles_race_application_development_10357.logic.GameManager
@@ -28,10 +30,11 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
+
+   private lateinit var  main_IMG_bgr : AppCompatImageView
    private lateinit var main_LBL_score : MaterialTextView
    private lateinit var main_IMG_hearts : Array <ShapeableImageView>
    private lateinit var main_BTN_left : ExtendedFloatingActionButton
-   //private lateinit var main_BTN_start : MaterialButton
    private lateinit var main_BTN_right : ExtendedFloatingActionButton
    private lateinit var main_IMG_asteroids : Array<Array<ShapeableImageView>>
    private lateinit var main_IMG_coins : Array<Array<ShapeableImageView>>
@@ -103,6 +106,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+
+        Glide
+            .with(this)
+            .load(R.drawable.main_bgr)
+            .centerCrop()
+            .placeholder(R.drawable.launcher_background)
+            .into(main_IMG_bgr)
+
+
         //intent is a previous activity
         val bundle : Bundle? = intent.extras
         val modeInt = bundle?.getInt(Constants.MODE_KEY, GameMode.BUTTONS.ordinal)
@@ -140,11 +152,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun moveLeft() {
        gameManager.moveLeft()
+        singleSoundPlayer.playSound(R.raw.fast_move)
        refreshUI()
     }
 
     private fun moveRight() {
         gameManager.moveRight()
+        singleSoundPlayer.playSound(R.raw.fast_move)
         refreshUI()
     }
 
@@ -156,6 +170,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun refreshUI() {
 
+        if(main_LBL_score.text.toString().toInt() < gameManager.score.toString().toInt()) { //if there was crystall catch
+            singleSoundPlayer.playSound(R.raw.catch_sound)
+        }
         main_LBL_score.text = gameManager.score.toString()
         //refresh ufo position view
         for (i in main_IMG_ufos.indices) {
@@ -199,13 +216,8 @@ class MainActivity : AppCompatActivity() {
                 "Game Status",
                 "Game Over!"
             )  //d - debug, e -error, i - info, w - warning, t - trace
-            //TODO: continue to implement + change screen
+
             changeActivity()
-            //collisions = 0
-            //gameManager.resetGameLogic()
-            //main_IMG_hearts[0].visibility = View.VISIBLE
-            //main_IMG_hearts[1].visibility = View.VISIBLE
-            //main_IMG_hearts[2].visibility = View.VISIBLE
         }
 
     }
@@ -278,16 +290,16 @@ class MainActivity : AppCompatActivity() {
     private fun changeActivity() {
         val intent = Intent(this, GameOverActivity::class.java)
         var bundle = Bundle()
-        bundle.putInt(Constants.SCORE_KEY, score)
+        bundle.putInt(Constants.SCORE_KEY, gameManager.score)
         intent.putExtras(bundle)
         startActivity(intent)
         finish()
     }
 
     private fun findViews() {
+        main_IMG_bgr = findViewById(R.id.main_IMG_bgr)
         main_LBL_score = findViewById(R.id.main_LBL_score)
         main_BTN_left = findViewById(R.id.main_BTN_left)
-        //main_BTN_start = findViewById(R.id.main_BTN_start)
         main_BTN_right = findViewById(R.id.main_BTN_right)
         main_IMG_hearts = arrayOf(
             findViewById(R.id.main_IMG_heart1),

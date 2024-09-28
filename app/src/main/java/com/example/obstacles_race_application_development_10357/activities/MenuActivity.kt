@@ -60,25 +60,11 @@ class MenuActivity : AppCompatActivity() {
 
     private fun goToHighScores() {
         val intent = Intent(this, ScoresActivity::class.java)
-        //var bundle = Bundle()
-        //bundle.putInt(Constants.MODE_KEY, mode.ordinal)
-        //bundle.putBoolean(Constants.HIGH_SPEED_KEY, highSpeed)
-        //intent.putExtras(bundle)
         startActivity(intent)
         finish()
     }
 
     private fun startGame() {
-        //radio_GRP_mode.setOnCheckedChangeListener { group, checkedId ->
-        //    val selectedRadioButton: RadioButton = findViewById(checkedId)
-        //    if (selectedRadioButton.id == R.id.radio_BTN_sensormode)
-        //        mode = GameMode.SENSOR
-        //}
-        //radio_GRP_menu_speed.setOnCheckedChangeListener { group, checkedId ->
-        //    val selectedRadioButton: RadioButton = findViewById(checkedId)
-        //    if (selectedRadioButton.id == R.id.radio_BTN_highSpeed)
-        //        highSpeed = true
-        //}
 
         val selectedRadioButtonId =  radio_GRP_mode.checkedRadioButtonId
         if (selectedRadioButtonId != -1 && selectedRadioButtonId == R.id.radio_BTN_sensormode)

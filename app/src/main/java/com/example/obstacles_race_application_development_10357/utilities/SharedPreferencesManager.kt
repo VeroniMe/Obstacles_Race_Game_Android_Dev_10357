@@ -3,7 +3,7 @@ package com.example.obstacles_race_application_development_10357.utilities
 import android.content.Context
 import android.content.SharedPreferences
 
-//Singlton
+//Singleton
 class SharedPreferencesManager private constructor (context: Context) {
 
     private val sharedPref: SharedPreferences = context.getSharedPreferences(Constants.DATA_KEY, Context.MODE_PRIVATE)
