@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.obstacles_race_application_development_10357.R
 import com.example.obstacles_race_application_development_10357.models.HighScoresList
 import com.example.obstacles_race_application_development_10357.models.Score
+import com.example.obstacles_race_application_development_10357.utilities.BackgroundMusicPlayer
 import com.example.obstacles_race_application_development_10357.utilities.Constants
 import com.example.obstacles_race_application_development_10357.utilities.DataManager
 import com.example.obstacles_race_application_development_10357.utilities.PlayerLocation
@@ -36,6 +37,7 @@ class GameOverActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_over)
+        BackgroundMusicPlayer.getInstance().stopMusic()
         findViews()
         initViews()
 

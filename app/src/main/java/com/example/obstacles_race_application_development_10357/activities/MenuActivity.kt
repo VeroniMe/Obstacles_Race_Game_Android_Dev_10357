@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import com.bumptech.glide.Glide
 import com.example.obstacles_race_application_development_10357.R
+import com.example.obstacles_race_application_development_10357.utilities.BackgroundMusicPlayer
 import com.example.obstacles_race_application_development_10357.utilities.Constants
 import com.example.obstacles_race_application_development_10357.utilities.GameMode
 import com.google.android.material.button.MaterialButton
@@ -41,6 +42,7 @@ class MenuActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu)
         findViews()
         initViews()
+        BackgroundMusicPlayer.getInstance().startMusic()
     }
 
 
